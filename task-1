@@ -1,43 +1,56 @@
 import java.util.Scanner;
 
-public class JavaExample
-{
-    public static void main(String args[])
-    {
-    	/* This program assumes that the student has 6 subjects,
-    	 * thats why I have created the array of size 6. You can
-    	 * change this as per the requirement.
-    	 */
-        int marks[] = new int[6];
-        int i;
-        float total=0, avg;
-        Scanner scanner = new Scanner(System.in);
-		
-        
-        for(i=0; i<6; i++) { 
-           System.out.print("Enter Marks of Subject"+(i+1)+":");
-           marks[i] = scanner.nextInt();
-           total = total + marks[i];
-        }
-        scanner.close();
-        //Calculating average here
-        avg = total/6;
-        System.out.print("The student Grade is: ");
-        if(avg>=80)
-        {
-            System.out.print("A");
-        }
-        else if(avg>=60 && avg<80)
-        {
-           System.out.print("B");
-        } 
-        else if(avg>=40 && avg<60)
-        {
-            System.out.print("C");
-        }
-        else
-        {
-            System.out.print("D");
-        }
+class Main {
+  public static void main(String[] args) {
+
+    char operator;
+    Double number1, number2, result;
+
+    // create an object of Scanner class
+    Scanner input = new Scanner(System.in);
+
+    // ask users to enter operator
+    System.out.println("Choose an operator: +, -, *, or /");
+    operator = input.next().charAt(0);
+
+    // ask users to enter numbers
+    System.out.println("Enter first number");
+    number1 = input.nextDouble();
+
+    System.out.println("Enter second number");
+    number2 = input.nextDouble();
+
+    switch (operator) {
+
+      // performs addition between numbers
+      case '+':
+        result = number1 + number2;
+        System.out.println(number1 + " + " + number2 + " = " + result);
+        break;
+
+      // performs subtraction between numbers
+      case '-':
+        result = number1 - number2;
+        System.out.println(number1 + " - " + number2 + " = " + result);
+        break;
+
+      // performs multiplication between numbers
+      case '*':
+        result = number1 * number2;
+        System.out.println(number1 + " * " + number2 + " = " + result);
+        break;
+
+      // performs division between numbers
+      case '/':
+        result = number1 / number2;
+        System.out.println(number1 + " / " + number2 + " = " + result);
+        break;
+
+      default:
+        System.out.println("Invalid operator!");
+        break;
     }
+
+    input.close();
+  }
 }
